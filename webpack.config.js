@@ -1,20 +1,28 @@
+var CopyWebpackPlugin = require('copy-webpack-plugin');
+var path=require("path");
 module.exports = {
-  entry: "./app/app.js",
+  entry: "./src/app.js",
   output: {
-    path: __dirname,
-    filename: "public/bundle.js"
+    path: path.resolve(__dirname, 'public'),
+    filename: "bundle.js"
   },
   module: {
     loaders: [
       {
-        test: /\.jsx?$/,
-        exclude: /(node_modules|bower_components)/,
-        loader: 'babel-loader',
-        query:
-         {
-           presets:['react', 'es2015']
-         }
+        test: /\.jsx?$/,         // Match both .js and .jsx files
+        exclude: /node_modules/,
+        loader: "babel-loader?presets[]=react"
       }
     ]
-  }
+  },
+  devServer: {
+    contentBase: path.join(__dirname, "public"),
+    compress: true,
+    port: 9000
+  },
+  plugins: [
+    new CopyWebpackPlugin([
+      { from: './src/index.html', to: path.resolve(__dirname, 'public')}
+    ])
+  ]
 };
