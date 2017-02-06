@@ -2,11 +2,14 @@
 
 import React from 'react';
 import ReactDOM from 'react-dom';
+import ChatApp from './simplechatapp/components/ChatApp.js'
 
 class HelloWorld extends React.Component {
   render() {
     return(
-      <h1> Hello World My name is Mounika Rendedla</h1>
+      <h1>
+      <ChatApp />
+      </h1>
     );
   }
 }
