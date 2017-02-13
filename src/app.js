@@ -2,16 +2,16 @@
 
 import React from 'react';
 import ReactDOM from 'react-dom';
-import ChatApp from './simplechatapp/components/ChatApp.js'
+import ChatApp from './ChatAppFlux/components/ChatApp.js'
 
 class HelloWorld extends React.Component {
   render() {
     return(
-      <h1>
-      <ChatApp />
-      </h1>
-    );
-  }
+       <ChatApp />
+      
+      );
 }
+}
+  
 
 ReactDOM.render(<HelloWorld />, document.getElementById('app'));

@@ -7,13 +7,24 @@ module.exports = {
     filename: "bundle.js"
   },
   module: {
+     
     loaders: [
       {
-        test: /\.jsx?$/,         // Match both .js and .jsx files
+        test: /\.js$/,        // Match both .js and .jsx files
         exclude: /node_modules/,
-        loader: "babel-loader?presets[]=react"
-      }
+       loader: "babel-loader"
+                
+
+      },
+      {
+        test: /\.json$/,
+        loader: 'json-loader',
+        include: path.join(__dirname, 'client')
+      },
     ]
+
+
+
   },
   devServer: {
     contentBase: path.join(__dirname, "public"),
@@ -21,7 +32,7 @@ module.exports = {
     port: 9000
   },
   plugins: [
-    new CopyWebpackPlugin([
+new CopyWebpackPlugin([
       { from: './src/index.html', to: path.resolve(__dirname, 'public')}
     ])
   ]
