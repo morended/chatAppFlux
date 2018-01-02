@@ -33,8 +33,9 @@ class ChatApp extends React.Component {
           <Student id="Student1 :" />
           <Student id="Student2 :"/><br/>
              {this.state.messages.map((message, index) => (
-                 <p key={index}>{message}</p>
-             ))}
+                 <p key={index}>{message}</p>)
+           )}
+  
       </div>
   );
   }
