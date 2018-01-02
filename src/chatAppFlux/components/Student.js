@@ -11,26 +11,22 @@ class Student extends React.Component {
       message: ""
     }
     this._handleClick=this._handleClick.bind(this);
-  this._handleOnChange=this._handleOnChange.bind(this);
+    this._handleOnChange=this._handleOnChange.bind(this);
   }
   render() {
     return(
       <div>
-    {this.props.id}<input type="text"  value={this.state.message} onChange={this._handleOnChange}/>
-    <input type="Button" value="send"  onClick={this._handleClick}/>
+         {this.props.id}  <input type="text"  value={this.state.message} onChange={this._handleOnChange}/>
+         <input type="Button" value="send"  onClick={this._handleClick}/>
       </div>
     );
   }
   _handleOnChange(event){
-
-   this.setState({message:event.target.value})
-
-
- }
+      this.setState({message:event.target.value})
+   }
  _handleClick(){
-chatActions.updateMessages(this.props.id+this.state.message);
-   
-   this.state.message="";
+      chatActions.updateMessages(this.props.id+this.state.message);
+      this.state.message="";
  }
 }
 export default Student;
