@@ -5,21 +5,17 @@ import ReactDOM from 'react-dom';
 import Student from './Student.js';
 import chatStore from '../store/chatStore.js'
 
-
 class ChatApp extends React.Component {
   constructor() {
     super();
     this.state = {
       messages: []
     }
-     this.onChange=this.onChange.bind(this);
-      
+    this.onChange=this.onChange.bind(this);
   }
-   
   componentDidMount() {
     chatStore.listen(this.onChange)
   }
-
   componentWillUnmount() {
     chatStore.unlisten(this.onChange)
   }
@@ -34,15 +30,13 @@ class ChatApp extends React.Component {
   render() {
     return (
       <div>
-      <Student id="Student1 :" />
-      <Student id="Student2 :"/><br/>
-      {this.state.messages.map((message, index) => (
-       <p key={index}>{message}</p>
-     ))}
-
+          <Student id="Student1 :" />
+          <Student id="Student2 :"/><br/>
+             {this.state.messages.map((message, index) => (
+                 <p key={index}>{message}</p>
+             ))}
       </div>
-
-    );
+  );
   }
 }
 export default ChatApp;
