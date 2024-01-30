@@ -4,6 +4,7 @@
   "description": "",
   "author": "Mounika Rendedla",
   "scripts": {
+    "install": "install"
     "start": "webpack-dev-server --inline --hot"
   },
   "dependencies": {
